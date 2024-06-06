@@ -63,7 +63,7 @@ export default function Products() {
         }
     }, [isSuccess]);
     if (isLoading) return <h1>Loading</h1>
-    if (isError) return <h1>{error}</h1>
+    // if (isError) return <h1>{error}</h1>
     const getSeverity = (product) => {
         switch (product.inventoryStatus) {
             case 'INSTOCK':

@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { useDispatch } from "react-redux";
 import { setToken } from "./authSlice";
+import Swal from 'sweetalert2'
 
 export default function Update() {   
     const {_id, roles, phone, name,  email, address, } = useAuth()
@@ -22,6 +23,15 @@ export default function Update() {
             navigate('/')
         }
     })
+    useEffect(() => {
+        if (isError) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '!משהו השתבש',
+          });
+        }
+      }, [isError]);
     const navigate = useNavigate()
     const show = () => {
         toast.current.show({ severity: 'success', summary: 'Form Submitted' });
@@ -71,7 +81,7 @@ export default function Update() {
       <div style={{marginTop:'200px'}}>
       <form onSubmit={formik.handleSubmit} className="flex flex-wrap  gap-3 p-fluid" style={{width:'50%',marginLeft:'25%'}}>
       <Toast ref={toast} />
-      <h2>{isError && JSON.stringify(error)}</h2>
+      {/* <h2>{isError && JSON.stringify(error)}</h2> */}
       <div className="flex-auto">
       <label htmlFor="value" className="font-bold block mb-2">שם</label>
                     <AutoComplete

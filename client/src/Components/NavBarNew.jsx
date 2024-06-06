@@ -36,17 +36,7 @@ export default function NavBarNew() {
                     label: 'התחברות',
                     icon: 'pi pi-bolt',
                     url: '/login'
-                },
-                {
-                    label: <Button style={{color: 'white'}} rounded text severity="info" onClick={()=>dispatch(removeToken())}>התנתקות</Button>,
-                    icon: 'pi pi-bolt',
-                    url: '/'
-                },
-                {
-                    label: 'עריכת פרטים אישיים',
-                    icon: 'pi pi-user-edit ', 
-                    url: '/update'                 
-                },                
+                },                             
                 {
                     separator: true
                 },
